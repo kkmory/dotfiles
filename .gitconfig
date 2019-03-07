@@ -15,6 +15,7 @@ ss = stash save
 ca = commit -am
 co = commit -m
 pr = pull --rebase
+ri = rebase -i
 f = fetch
 d = diff
 ch = checkout
