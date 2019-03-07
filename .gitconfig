@@ -1,0 +1,22 @@
+[core]
+excludesfile = /Users/keisuke/.gitignore_global
+
+[user]
+name = Keisuke Mory
+email = 
+
+[alias]
+a = add
+aa = add .
+b = branch
+s = status
+sp = stash pop
+ss = stash save
+ca = commit -am
+co = commit -m
+pr = pull --rebase
+f = fetch
+d = diff
+ch = checkout
+l = log
+
