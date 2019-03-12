@@ -18,3 +18,19 @@ https://www.jetbrains.com/go
 https://www.jetbrains.com/ruby  
 https://www.jetbrains.com/webstorm  
 https://code.visualstudio.com/  
+
+## Brew
+#### env
+```
+brew install zsh git jq 
+```
+
+#### lang
+```
+brew install mysql goenv ndenv pyenv rbenv ruby-build
+```
+
+#### db infla
+```
+brew install mysql postgresql sqlite redis kubernetes-cli protobuf aws-elasticbeanstalk aws-cli
+```
