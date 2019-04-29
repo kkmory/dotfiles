@@ -19,13 +19,15 @@ export PGDATA=/usr/local/var/postgres
 
 ########################################
 
-# Rails
+# Ruby
 alias be='bundle exec'
 
 # Docker
+alias db='docker-compose run web bundle exec'
 alias de='docker exec -it'
 alias dp='docker ps -a'
 alias dc='docker-compose up -d'
+alias dr='docker-compose run'
 alias di='docker images'
 
 # bitcoin
@@ -38,6 +40,7 @@ alias e2-cli='$HOME/elements/src/elements-cli -datadir=$HOME/elementsdir2'
 
 # git
 alias g='git'
+alias gg='git checkout'
 alias ga='git add .'
 alias gc='git commit -am'
 alias gp='git push origin'
@@ -49,9 +52,10 @@ alias kge='kubectl get'
 alias kap='kubectl apply -f'
 
 # dir
+alias desk='cd ~/Desktop && ls -l'
 alias dev='cd ~/Dev/ && ls -l'
-alias gopath='cd $GOPATH'
-alias hackz='cd ~/Dev/hackz/'
+alias gopath='cd $GOPATH && ls -l'
+alias hackz='cd ~/Dev/hackz/ && ls -l'
 alias ..='cd ../'
 alias .2='cd ../../'
 alias .3='cd ../../../'
@@ -63,6 +67,7 @@ alias mv='mv -i'
 alias mkdir='mkdir -p'
 
 # global
+alias pg='ps ax | grep'
 alias -g L='| less'
 alias -g G='| grep'
 
