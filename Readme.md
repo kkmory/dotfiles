@@ -3,7 +3,6 @@
 
 ## Common
 https://vivaldi.com/ja/  
-https://www.opera.com/ja  
 https://www.google.com/intl/ja_ALL/chrome/  
 https://www.google.co.jp/ime/  
 https://www.google.com/intl/ja_ALL/drive/download/  
