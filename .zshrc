@@ -9,7 +9,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 # Golang
-#export GO111MODULE=on
+export GO111MODULE=on
 export GOPATH=$HOME/dev/golang
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
@@ -21,6 +21,9 @@ export PGDATA=/usr/local/var/postgres
 
 # Ruby
 alias be='bundle exec'
+alias bi='bundle install --path=vendor/bundle'
+alias bers='bundle exec rails s'
+alias berg='bundle exec rails g'
 
 # Docker
 alias db='docker-compose run web bundle exec'
@@ -40,11 +43,14 @@ alias e2-cli='$HOME/elements/src/elements-cli -datadir=$HOME/elementsdir2'
 
 # git
 alias g='git'
-alias gg='git checkout'
 alias ga='git add .'
-alias gc='git commit -am'
+alias gc='git commit -m'
+alias gd='git diff'
+alias gj='git add . && git commit -am'
 alias gp='git push origin'
 alias gr='git rebase -i'
+alias gl='git log'
+alias gs='git status'
 
 # k8s
 alias k='kubectl'
