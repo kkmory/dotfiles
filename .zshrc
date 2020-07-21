@@ -1,55 +1,74 @@
-# source ~/.bash_profile
 export LANG=ja_JP.UTF-8
-export ZSH=/Users/keisuke/.oh-my-zsh
-export PATH=/bin:/usr/sbin:/sbin:/Users/keisuke/.pyenv/shims:/Users/keisuke/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/keisuke/.nodebrew/current/bin:/Users/keisuke/esp/xtensa-esp32-elf/bin:/usr/local/Cellar/openssl/1.0.2p/bin:/Users/keisuke/.pyenv/bin:/usr/local/opt/go/libexec/bin:/Users/keisuke/dev/golang/bin
+export ZSH="/Users/keisuke/.oh-my-zsh"
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+ZSH_THEME="agnoster"
+
+# Ruby
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+eval "$(rbenv init -)"
 
 # Python
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+# JS
+export PATH="$HOME/.nodenv/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+eval "$(nodenv init -)"
+
 # Golang
 export GO111MODULE=on
-export GOPATH=$HOME/dev/golang
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export GOENV_ROOT=$HOME/.goenv
+export GOPATH=$HOME/dev/go
+export PATH=$GOPATH/bin:$PATH
+export PATH=$GOENV_ROOT/bin:$PATH
+export PATH=$HOME/.goenv/bin:$PATH
+eval "$(goenv init -)"
 
-# Databases
-export PGDATA=/usr/local/var/postgres
+# Terraform
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
 
-########################################
+# Google Cloud SDK.
+if [ -f '/Users/keisuke/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/keisuke/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/keisuke/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/keisuke/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+#######################################
+
+# Google Cloud
+alias gc='gcloud'
 
 # Ruby
 alias be='bundle exec'
-alias bi='bundle install --path=vendor/bundle'
 alias bers='bundle exec rails s'
+alias bejs='bundle exec jets s'
 alias berg='bundle exec rails g'
+alias bi='bundle install --path=vendor/bundle'
 
 # Docker
-alias db='docker-compose run web bundle exec'
 alias de='docker exec -it'
-alias dp='docker ps -a'
-alias dc='docker-compose up -d'
-alias dr='docker-compose run'
+alias dp='docker ps'
+alias dpa='docker ps -a'
+alias dc='docker-compose'
+alias dcu='docker-compose up'
+alias dcd='docker-compose up -d'
+alias dcr='docker-compose run'
+alias dcb='docker-compose build'
 alias di='docker images'
 
-# bitcoin
-alias b-dae='bitcoind -datadir=$HOME/bitcoindir'
-alias b-cli='bitcoin-cli -datadir=$HOME/bitcoindir'
-alias e1-dae='$HOME/elements/src/elementsd -datadir=$HOME/elementsdir1'
-alias e1-cli='$HOME/elements/src/elements-cli -datadir=$HOME/elementsdir1'
-alias e2-dae='$HOME/elements/src/elementsd -datadir=$HOME/elementsdir2'
-alias e2-cli='$HOME/elements/src/elements-cli -datadir=$HOME/elementsdir2'
+# JS
+alias yl='yarn lint --fix'
+alias yd='yarn dev'
+alias yb='yarn build'
 
 # git
 alias g='git'
 alias ga='git add .'
-alias gc='git commit -m'
 alias gd='git diff'
 alias gj='git add . && git commit -am'
-alias gp='git push origin'
-alias gr='git rebase -i'
-alias gl='git log'
+alias gpush='git push origin'
 alias gs='git status'
 
 # k8s
@@ -59,7 +78,7 @@ alias kap='kubectl apply -f'
 
 # dir
 alias desk='cd ~/Desktop && ls -l'
-alias dev='cd ~/Dev/ && ls -l'
+alias dev='cd ~/dev/ && ls -l'
 alias gopath='cd $GOPATH && ls -l'
 alias hackz='cd ~/Dev/hackz/ && ls -l'
 alias ..='cd ../'
@@ -67,6 +86,7 @@ alias .2='cd ../../'
 alias .3='cd ../../../'
 alias la='ls -a'
 alias ll='ls -l'
+alias l='ls -a -l'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -94,7 +114,7 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 
 # プロンプト
-PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
+PROMPT="%{${fg[green]}%}%{${reset_color}%} %~
 %# "
 
 # 単語の区切り文字を指定する
@@ -200,8 +220,6 @@ elif which putclip >/dev/null 2>&1 ; then
     alias -g C='| putclip'
 fi
 
-
-
 ########################################
 # OS 別の設定
 case ${OSTYPE} in
@@ -216,64 +234,12 @@ case ${OSTYPE} in
         ;;
 esac
 
-# vim:set ft=zsh;
+########################################
+# zsh
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME=cobalt2
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
 )
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
