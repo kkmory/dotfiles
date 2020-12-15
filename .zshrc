@@ -1,11 +1,22 @@
 export LANG=ja_JP.UTF-8
+
+# oh-my-zsh
 export ZSH="/Users/keisuke/.oh-my-zsh"
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
 ZSH_THEME="agnoster"
 
+plugins=(
+  git
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# Paths
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+
 # Ruby
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+export RBENV_ROOT="$HOME/.rbenv"
+export PATH="$RBENV_ROOT/bin:$PATH"
 eval "$(rbenv init -)"
 
 # Python
@@ -18,7 +29,7 @@ export PATH="$HOME/.nodenv/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 eval "$(nodenv init -)"
 
-# Golang
+# Go
 export GO111MODULE=on
 export GOENV_ROOT=$HOME/.goenv
 export GOPATH=$HOME/dev/go
@@ -30,10 +41,6 @@ eval "$(goenv init -)"
 # Terraform
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
-
-# Google Cloud SDK.
-if [ -f '/Users/keisuke/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/keisuke/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '/Users/keisuke/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/keisuke/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 #######################################
 
@@ -59,6 +66,7 @@ alias dcb='docker-compose build'
 alias di='docker images'
 
 # JS
+alias y='yarn'
 alias yl='yarn lint --fix'
 alias yd='yarn dev'
 alias yb='yarn build'
@@ -66,10 +74,15 @@ alias yb='yarn build'
 # git
 alias g='git'
 alias ga='git add .'
-alias gd='git diff'
 alias gj='git add . && git commit -am'
-alias gpush='git push origin'
-alias gs='git status'
+alias gg='git commit -m'
+alias gid='git diff'
+alias gis='git status'
+alias gll='git log'
+alias gpu='git pull origin HEAD'
+alias gpp='git push origin HEAD'
+alias gre='git reset --soft HEAD\^'
+alias gri='git rebase -i'
 
 # k8s
 alias k='kubectl'
@@ -77,10 +90,8 @@ alias kge='kubectl get'
 alias kap='kubectl apply -f'
 
 # dir
-alias desk='cd ~/Desktop && ls -l'
-alias dev='cd ~/dev/ && ls -l'
-alias gopath='cd $GOPATH && ls -l'
-alias hackz='cd ~/Dev/hackz/ && ls -l'
+alias des='cd ~/Desktop && ls -l'
+alias dev='cd ~/Dev/ && ls -l'
 alias ..='cd ../'
 alias .2='cd ../../'
 alias .3='cd ../../../'
@@ -233,13 +244,3 @@ case ${OSTYPE} in
         alias ls='ls -F --color=auto'
         ;;
 esac
-
-########################################
-# zsh
-
-plugins=(
-  git
-)
-
-source $ZSH/oh-my-zsh.sh
-
