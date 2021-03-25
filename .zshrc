@@ -1,8 +1,9 @@
-export LANG=ja_JP.UTF-8
-
-# oh-my-zsh
 export ZSH="/Users/keisuke/.oh-my-zsh"
 ZSH_THEME="agnoster"
+
+export LANG="ja_JP.UTF-8"
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 
 plugins=(
   git
@@ -24,7 +25,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# JS
+# Node
 export PATH="$HOME/.nodenv/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 eval "$(nodenv init -)"
