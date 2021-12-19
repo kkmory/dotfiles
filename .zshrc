@@ -45,6 +45,14 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 
 #######################################
 
+# Terraform
+alias tf='terraform'
+alias tfp='terraform plan'
+
+# Scala
+alias st='(){sbt "project $1" "scalafmtCheckAll" "scalafixAll --check" "test"}'
+alias stq='(){sbt "project $1" testQuick}'
+
 # Google Cloud
 alias gc='gcloud'
 
