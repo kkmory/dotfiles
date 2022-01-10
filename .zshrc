@@ -1,43 +1,34 @@
-export ZSH="/Users/keisuke/.oh-my-zsh"
-ZSH_THEME="agnoster"
+eval "$(starship init zsh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# common
 export LANG="ja_JP.UTF-8"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
-plugins=(
-  git
-)
+# anyenv
+eval "$(anyenv init - zsh)"
+export ANYENVS="$HOME/.anyenv/envs"
 
-source $ZSH/oh-my-zsh.sh
+export PATH="$ANYENVS/rbenv/bin:$PATH"
+eval "$(rbenv init - zsh)"
+
+export PATH="$ANYENVS/pyenv/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
+export PATH="$ANYENVS/goenv/bin:$PATH"
+eval "$(goenv init - zsh)"
+
+export PATH="$ANYENVS/nodenv/bin:$PATH"
+eval "$(nodenv init - zsh)"
 
 # Paths
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
-# Ruby
-export RBENV_ROOT="$HOME/.rbenv"
-export PATH="$RBENV_ROOT/bin:$PATH"
-eval "$(rbenv init -)"
-
-# Python
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# Node
-export PATH="$HOME/.nodenv/bin:$PATH"
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-eval "$(nodenv init -)"
-
 # Go
 export GO111MODULE=on
-export GOENV_ROOT=$HOME/.goenv
 export GOPATH=$HOME/dev/go
-export PATH=$GOPATH/bin:$PATH
-export PATH=$GOENV_ROOT/bin:$PATH
-export PATH=$HOME/.goenv/bin:$PATH
-eval "$(goenv init -)"
 
 # Terraform
 autoload -U +X bashcompinit && bashcompinit
