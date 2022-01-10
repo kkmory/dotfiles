@@ -1,0 +1,106 @@
+add_newline = true
+
+[aws]
+symbol = "  "
+
+[aws.region_aliases]
+ap-northeast-1 = "Tokyo"
+
+[cmd_duration]
+disabled = true
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[directory]
+truncation_length = 100
+truncate_to_repo = false #
+read_only = " "
+style = "bold purple"
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[git_state]
+cherry_pick = "🍒 PICKING"
+rebase = "🛠 REBASING"
+revert = "💥 REVERTING"
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+up_to_date = ""
+untracked = "🤷‍"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+renamed = "👅"
+deleted = "🗑"
+
+[golang]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+disabled = true
+
+[julia]
+symbol = " "
+
+[memory_usage]
+disabled = true
+threshold = 1
+symbol = " "
+style = "bold dimmed green"
+format = "$symbol[${ram}]($style) "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[package]
+symbol = " "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+disabled = true
+
+[shlvl]
+symbol = " "
+
+[swift]
+symbol = "ﯣ "
+
